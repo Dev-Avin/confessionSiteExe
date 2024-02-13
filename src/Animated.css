@@ -1,0 +1,100 @@
+.fixed {
+    position: fixed;
+    z-index: 1;
+  }
+.blurr{
+    filter: blur(40px);
+    position: absolute;
+}
+  
+  .ellipse1 {
+    border-radius: 50%;
+    width: 400px;
+    height: 406px;
+    transform: rotate(90deg);
+    flex-shrink: 0;
+    top: 10%;
+    left: -10%;
+    background-color: hsl(29, 100%, 75% );
+    /* radial-gradient(circle at center, #FFBD80, rgba(254, 214, 178, 0.00)); */
+  }
+  
+  .ellipse2 {
+    border-radius: 50%;
+    width: 243px;
+    height: 227px;
+    transform: rotate(90deg);
+    flex-shrink: 0;
+    top: 40%;
+    left: 7%;
+    background-color: rgb(235, 14, 113)
+    /* rgb(232, 213, 255); */
+  }
+  
+  .ellipse3 {
+    border-radius: 50%;
+    width: 512px;
+    height: 458px;
+    transform: rotate(14deg);
+    flex-shrink: 0;
+    transform: rotate(45deg);
+    top: 80%;
+    left: 80%;
+    background-image: radial-gradient(circle at center, #ec8525, rgb(254, 214, 178));
+  }
+  
+  .ellipse4 {
+    border-radius: 50%;
+    width: 931px;
+    height: 406px;
+    transform: rotate(90.286deg);
+    flex-shrink: 0;
+    top: 30%;
+    left: 70%;
+    background-image: radial-gradient(circle at center, #FFF, rgb(179, 83, 0));
+  }
+  
+  .ellipse5 {
+  border-radius: 50%;
+  width: 931px;
+  height: 406px;
+  transform: rotate(90.286deg);
+  flex-shrink: 0;
+  top: 30%;
+  left: 70%;
+  background-image: radial-gradient(circle at center, #FFF, rgb(165, 45, 212));
+}
+
+.ellipse6 {
+  border-radius: 50%;
+  width: 400px;
+  height: 406px;
+  transform: rotate(90deg);
+  flex-shrink: 0;
+  top: 10%;
+  left: -10%;
+  background-color: hsl(29, 100%, 75% );
+}
+
+.ellipse7 {
+  border-radius: 50%;
+  width: 243px;
+  height: 227px;
+  transform: rotate(90deg);
+  flex-shrink: 0;
+  top: 40%;
+  left: 7%;
+  background-color: rgb(250, 203, 224);
+}
+
+.ellipse8 {
+  border-radius: 50%;
+  width: 512px;
+  height: 458px;
+  transform: rotate(14deg);
+  flex-shrink: 0;
+  transform: rotate(45deg);
+  top: 80%;
+  left: 80%;
+  background-image: radial-gradient(circle at center, #FFE6CE, rgb(254, 214, 170));
+}

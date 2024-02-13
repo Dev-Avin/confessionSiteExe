@@ -1,0 +1,201 @@
+.homeContainer {
+    height: 80vh;
+    padding: 20px;
+    color: white;
+    background: linear-gradient(135deg, rgba(255, 238, 204, 1), rgba(247, 217, 255, 1));
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow: scroll;
+}
+@media screen and (max-width: 600px) {
+    .homeContainer {
+        flex-direction: column;
+    }
+}
+
+
+.flexChild {
+    flex: 1;
+}
+
+.flexCont {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.account {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    border: 1px solid white;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background: linear-gradient(315deg, rgba(255, 238, 204, 1), rgba(247, 217, 255, 1));
+}
+
+.confess {
+    margin-top: 20px;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+}
+
+.topConfession {
+    margin-top: 20px;
+    border-top: 1px solid white;
+    height: inherit;
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text {
+    color: grey;
+}
+
+.accountImg {
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+}
+.accountImg > img {
+    width: 100%;
+    border-radius: 50%;
+    margin-top: 25px;
+
+}
+.options {
+    width: 80%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.optInd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.optInd > img {
+    width: min(50px, 2vw);
+    aspect-ratio: 1;
+}
+
+.optInd p {
+    flex: 3;
+    font-size: medium;
+    color: blue;
+}
+
+.iconTab {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.iconTab > img {
+    width: min(50px, 2vw);
+    aspect-ratio: 1;
+}
+
+@media screen and (max-width: 900px) {
+    .account {
+        display: none;
+    }
+}
+
+/* Additional classes */
+.confInput {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 80%;
+    background-color: rgba(0,0,0,0);
+    border: 2px none #00327d;
+    color: #00327d;
+    font-weight: 300;
+    border-bottom: 2px dashed #00327d;
+    border-radius: 5px;
+}
+
+.confInputMain {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px dashed #00327d;
+    width: 80%;
+    color: #00327d;
+    aspect-ratio: 1;
+    text-wrap: anywhere ;
+    overflow-Y: scroll;
+    border-radius: 5px;
+}
+
+.confSubmit {
+    background:linear-gradient(to right, #f093fb, #f5576c);;
+    color: blue;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.whiteDiv {
+    background-color: white;
+    padding: 20px;
+    width: 80%;
+    height: 70vh;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gradientDiv {
+    background: linear-gradient(0deg, rgb(253, 219, 149), rgb(220, 144, 241));
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    height: 90%;
+    color: mediumslateblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+.gradButton {
+    background:linear-gradient(10deg, rgb(253, 219, 149), rgb(220, 144, 241));
+    color: white;
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/* Adjustments */
+h1, h2 {
+    margin: 0;
+}
