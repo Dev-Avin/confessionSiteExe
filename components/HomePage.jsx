@@ -46,11 +46,9 @@ const HomePage = () => {
     </ol>
   </cite>
 </h3>
- <input className='enterUser'placeholder='USER_Name'>
 
- </input>
 <button className='enter'> 
-  Continue
+  Sign In With Google
 </button>
 
       </div>

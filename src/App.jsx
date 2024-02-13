@@ -7,6 +7,7 @@ import Animated from './Animated.jsx'
 import About from '../components/About.jsx'
 import leftGirl from '/leftgirl-removebg-preview.png'; // Import the image
 import './App.css'; // Import the CSS file
+import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom'
 
 const App = () => {
   const [scrollPercentage, setScrollPercentage] = useState(0);
@@ -29,6 +30,8 @@ const App = () => {
   }, []);
 
   return (
+      <>
+
     <div className='scrollSpace'>
           {scrollPercentage >= 15 && scrollPercentage < 85 && (
             <div className='leftGirl' style={{ backgroundImage: `url(${leftGirl})` }}></div>
@@ -47,6 +50,28 @@ const App = () => {
         </div>
       </div>
     </div>
+   <Router>
+    <Routes>
+
+      
+      <Route path="/" element={<HomePage />}></Route>
+      <Route path="/LoginPage" element={<LoginPage/>}></Route>
+      <Route path="/confessionPage" element={<confessionPage/>}></Route>
+      <Route path="/about" element={<About />}></Route>
+     
+
+    </Routes>
+   </Router>
+
+
+
+    </>
+    
+
+
+
+
+     
   );
 };
 
