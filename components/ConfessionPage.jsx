@@ -1,8 +1,7 @@
-
-import React from 'react';
-import './ConfessionPage.css';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import ConfessionModal from '../modular_comps/CofessionModal';
+import './ConfessionPage.css'
 
 const ConfessionArr = [
   {
@@ -32,25 +31,37 @@ const ConfessionArr = [
 ];
 
 const ConfessionPage = () => {
+  const [currentConfessionIndex, setCurrentConfessionIndex] = useState(0);
+
+  const goToPreviousConfession = () => {
+    setCurrentConfessionIndex(currentConfessionIndex === 0 ? ConfessionArr.length - 1 : currentConfessionIndex - 1);
+  };
+
+  const goToNextConfession = () => {
+    setCurrentConfessionIndex(currentConfessionIndex === ConfessionArr.length - 1 ? 0 : currentConfessionIndex + 1);
+  };
+
   return (
     <motion.div 
-    className='homeContainer'
+      className='homeContainer'
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -50 }}
       transition={{ duration: 0.5 }}
       style={{
         background: 'blue',
-        height: '100vh',
+        height: '79vh',
         padding: '20px',
         color: 'white',
       }}
     >
-     <div className='confessions'>
-      {ConfessionArr.map(confession => (
-        <ConfessionModal key={confession.id} confession={confession} />
-      ))}
-     </div>
+      <div className='confessions'>
+        <ConfessionModal confession={ConfessionArr[currentConfessionIndex]} />
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
+        <button className='navigationButton' onClick={goToPreviousConfession}>Previous</button>
+        <button className='navigationButton' onClick={goToNextConfession}>Next</button>
+      </div>
     </motion.div>
   );
 };

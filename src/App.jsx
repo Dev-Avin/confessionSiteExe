@@ -11,34 +11,12 @@ import './App.css'; // Import the CSS file
 import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom'
 
 const App = () => {
-  const [scrollPercentage, setScrollPercentage] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const fullHeight = document.body.clientHeight;
-
-      const percentage = (scrollY / (fullHeight - windowHeight)) * 100;
-      setScrollPercentage(percentage);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  
+    
 
   return (
       <>
 
-    <div className='scrollSpace'>
-          {scrollPercentage >= 15 && scrollPercentage < 85 && (
-            <div className='leftGirl' style={{ backgroundImage: `url(${leftGirl})` }}></div>
-          )}
+    
       <div className='anime-container'>
       <Animated/>
       </div>
@@ -50,23 +28,24 @@ const App = () => {
       
       <Route path="/" element={<HomePage />}></Route>
       <Route path="/LoginPage" element={<LoginPage/>}></Route>
-      <Route path="/confessionPage" element={<confessionPage/>}></Route>
+      <Route path="/confessionPage" element={<ConfessionPage/>}></Route>
       <Route path="/about" element={<About />}></Route>
-     
+<Route path='/new' element = {<mainpage/>}></Route>
 
     </Routes>
    </Router>
 
-
+</div>
+</div>
 
     </>
     
-
+)
 
 
 
      
-  );
-};
+  
+}
 
 export default App;

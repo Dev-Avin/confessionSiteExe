@@ -1,7 +1,8 @@
 import React, {useEffect,useState}from 'react'
 import {getDocs , collection} from 'firebase/firestore'
 import {db} from '../firebase-config'
-
+import '../modular_comps/CofessionModal.jsx'
+import ConfessionModal from '../modular_comps/CofessionModal.jsx'
 
 const mainPage = () => {
 
@@ -20,9 +21,7 @@ const mainPage = () => {
   return (
        <div className='homePage'>
         {postLists.map((post)=>{
-            // use post.title and post.textArea to access the posts and display them
-
-            //delete functionality can also be added but i dont think so it is needed 
+         <ConfessionModal confession={post}/>
         })}
        </div>
    

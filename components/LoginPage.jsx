@@ -23,13 +23,13 @@ const optionArray = [
   {
     id: 1,
     title: 'Account',
-    linkto: '#',
-    url: account,
+    linkto: '/',
+    url:account,
   },
   {
     id: 2,
     title: 'See more',
-    linkto: './confessions',
+    linkto: './confessionPage',
     url: eyes,
   },
   
@@ -47,11 +47,13 @@ const navArr = [
     id: 1,
     title: 'Instagram',
     url: instagram,
+    linkto: 'https://www.instagram.com/teamexenith/',
   }, 
   {
     id: 2,
     title: 'Messages',
     url: message,
+    linkto: ''
   }
  
 ];

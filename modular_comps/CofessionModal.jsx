@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import "./ConfessionModal.css";
+import heartWhite from '../components/assets/heartwhite.png';
+import heartRed from '../components/assets/heartred.png';
 
 const ConfessionModal = ({ confession }) => {
   const [likes, setLikes] = useState(confession.likes);
@@ -13,11 +16,16 @@ const ConfessionModal = ({ confession }) => {
     <div className="confessionModal">
       <h2 className="confessionHead">{confession.title}</h2>
       <p className="confessionPara">{confession.body}</p>
-      <p className="confessionID">@{confession.age},{confession.gender}</p>
-      <button className="likeButton" onClick={liker}>
-        {liked ? "Liked" : "Like"}
-      </button>
-      <p className="confessionLikes">{likes}</p>
+      <div style={{
+        display:'flex',
+        justifyContent:'center',
+        flexDirection:'row',
+      }}>
+        <button className="likeButton" onClick={liker}>
+          <img src={liked ? heartRed : heartWhite} alt="heart" /> 
+        </button>
+        <p  className="confessionLikes">{likes}</p>
+      </div>
     </div>
   );
 };

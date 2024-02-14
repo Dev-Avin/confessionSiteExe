@@ -1,0 +1,59 @@
+/* ConfessionModal.css */
+
+.confessionModal {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:left;
+    width: mix(80%, 400px);
+    height: 60%;
+  }
+  
+  .confessionHead {
+    color: #00327d;
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+  
+  .confessionPara {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .confessionID {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .likeButton {
+    background-color: rgba(0, 50, 125,0);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .likeButton:hover {
+    background-color: rgba(218, 65, 185,0.3);
+  }
+  
+  .confessionLikes {
+    color: #666;
+    font-size: 14px;
+  }
+  .likeButton img {
+    max-width: 20px; /* Adjust as needed */
+    max-height: 20px; /* Adjust as needed */
+  }
+  
