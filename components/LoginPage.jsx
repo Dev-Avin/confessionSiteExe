@@ -9,6 +9,9 @@ import message from './assets/message.png';
 import eyes from './assets/eyes.png';
 import save from './assets/Save.png';
 import acco from './assets/acco.png';
+import {addDoc , collection} from 'firebase/firestore'
+import { useNavigate } from 'react-router-dom';
+import {db,auth} from "../src/firebase-config"
 
 //import Confessionof the day
 var confessionofDay ={
@@ -54,9 +57,24 @@ const navArr = [
 ];
 
 const LoginPage = () => {
+
+  const [title,setTitle]=useState("")
+  const [postText,setPostText]=useState("")
+
+  const postCollectionRef=collection(db,"confessions");
+  let navigate= useNavigate();
+  const createPost=async () =>{
+        await addDoc(postCollectionRef, {title:title , postText:postText , author: {name: auth.currentUser.displayName , id:auth.currentUser.uid } })
+
+        setTitle("")
+        setPostText("")
+        
+        navigate("/LoginPage")
+  }
+
+
   const [UserName, setUserName] = useState('Anon');
-  const [largeParagraph, setLargeParagraph] = useState('');
-  const [Content , setContent] = useState('');
+
   
   return (
     <motion.div 
@@ -93,14 +111,13 @@ const LoginPage = () => {
       <motion.div className='flexChild confess' style={{ color: '#00327d' }} initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
         <h1>Anonymous Voices</h1>
         <p>You can confess here too, nobody will know!</p>
-        <input className='confInput' placeholder='Title' />
+        <input className='confInput' placeholder='Title' onChange={(event)=>{setTitle(event.target.value)}} />
         <textarea
           className='confInputMain'
           placeholder='Confess Your Feelings'
-          value={largeParagraph}
-          onChange={(e) => setLargeParagraph(e.target.value)}
+          onChange={(event)=>{setPostText(event.target.value)}}
         />
-        <button className='confSubmit'>Submit</button>
+        <button className='confSubmit' onClick={createPost}>Submit</button>
       </motion.div>
       <motion.div className='flexChild topConfession' initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
         <h2 style={{ color: '#00327d' }}>Confession Of The Day</h2>
