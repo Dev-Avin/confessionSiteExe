@@ -1,31 +1,32 @@
-import React, {useEffect,useState}from 'react'
-import {getDocs , collection} from 'firebase/firestore'
-import {db} from '../firebase-config'
-import '../modular_comps/CofessionModal.jsx'
-import ConfessionModal from '../modular_comps/CofessionModal.jsx'
+import  { useEffect, useState } from 'react';
+import { getDocs, collection } from 'firebase/firestore';
+import { db } from '../firebase-config';
+// import ConfessionModal from '../modular_comps/CofessionModal.jsx';
 
-const mainPage = () => {
+const MainPage = () => {
+  const [postLists, setPostLists] = useState([]);
+  const postCollectionRef = collection(db, "confessions");
 
-
-  const [postLists, setPostLists]=useState([]);
-  const postCollectionRef=collection(db,"confessions");
-  useEffect(()=>{
-    const getPosts = async () =>{
-      const data=await getDocs(postCollectionRef);
-      setPostLists(data.docs.map((doc)=>({...doc.data(), id:doc.id})));
-
+  useEffect(() => {
+    const getPosts = async () => {
+      const data = await getDocs(postCollectionRef);
+      setPostLists(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
     getPosts();
-  })
-  return (
-       <div className='homePage'>
-        {postLists.map((post)=>{
-         <ConfessionModal confession={post}/>
-        })}
-       </div>
-   
-  )
-}
+  }, []); // Add an empty dependency array to ensure this effect runs only once
 
-export default mainPage
+  // Log the post object to the console
+  console.log(postLists);
+
+  return (
+    <div className='homePage'>
+      {/* Render ConfessionModal components */}
+      {/* {postLists.map((post) => (
+        <ConfessionModal key={post.id} confession={post} />
+      ))} */}
+    </div>
+  );
+};
+
+export default MainPage;

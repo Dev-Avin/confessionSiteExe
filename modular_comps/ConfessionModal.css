@@ -1,59 +1,43 @@
 /* ConfessionModal.css */
-
 .confessionModal {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 400px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items:left;
-    width: mix(80%, 400px);
-    height: 60%;
-  }
-  
-  .confessionHead {
-    color: #00327d;
-    font-size: 26px;
-    margin-bottom: 10px;
-  }
-  
-  .confessionPara {
-    color: #333;
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .confessionID {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  .likeButton {
-    background-color: rgba(0, 50, 125,0);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    padding: 8px 16px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .likeButton:hover {
-    background-color: rgba(218, 65, 185,0.3);
-  }
-  
-  .confessionLikes {
-    color: #666;
-    font-size: 14px;
-  }
-  .likeButton img {
-    max-width: 20px; /* Adjust as needed */
-    max-height: 20px; /* Adjust as needed */
-  }
-  
+  background-color: #ffc0cb; /* Pinkish hue */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 300px; /* Adjust the width as needed */
+  height: 200px; /* Fixed height */
+  margin-right: 20px; /* Add some spacing between modals */
+  display: flex; /* Make the modal flex container */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-between; /* Space out content vertically */
+}
+
+.confessionModal h2 {
+  margin-top: 0;
+  margin-bottom: 10px; /* Add margin below the heading */
+}
+
+.confessionModal p {
+  margin-bottom: 10px; /* Add margin below the paragraph */
+}
+
+.confessionLikes {
+  margin-left: 10px; /* Add margin to separate the like count from the button */
+}
+
+.likeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.0);
+  align-items: center;
+}
+.likeButton:hover {
+  background: rgba(251, 64, 179, 0.2);
+}
+.likeButton img {
+  width: 24px; /* Adjust the size of the heart icon */
+  height: auto;
+}
