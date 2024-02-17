@@ -9,20 +9,26 @@
   margin-right: 20px; /* Add some spacing between modals */
   display: flex; /* Make the modal flex container */
   flex-direction: column; /* Stack children vertically */
-  justify-content: space-between; /* Space out content vertically */
+  justify-content: space-between;
+  overflow-y: scroll; 
+  
 }
+.confessionPara {
+  overflow-wrap: break-word; 
+}
+
 
 .confessionModal h2 {
   margin-top: 0;
-  margin-bottom: 10px; /* Add margin below the heading */
+  margin-bottom: 10px; 
 }
 
 .confessionModal p {
-  margin-bottom: 10px; /* Add margin below the paragraph */
+  margin-bottom: 10px; 
 }
 
 .confessionLikes {
-  margin-left: 10px; /* Add margin to separate the like count from the button */
+  margin-left: 10px; 
 }
 
 .likeButton {
@@ -38,6 +44,6 @@
   background: rgba(251, 64, 179, 0.2);
 }
 .likeButton img {
-  width: 24px; /* Adjust the size of the heart icon */
+  width: 24px; 
   height: auto;
 }

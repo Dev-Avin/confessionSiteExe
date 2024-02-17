@@ -1,14 +1,12 @@
 /* HomePage.css */
 
-.homeContainer {
-
-  height: 90vh;
-
+.homePageContainer {
+  height: 80vh;
   padding: 20px;
   color: white;
   background: linear-gradient(90deg, rgba(255, 238, 204, 1), rgba(247, 217, 255, 1));
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction:row;
   position: relative;
   border-radius: 30px;
   z-index: 12;
@@ -19,7 +17,7 @@
   color: white;
   box-sizing: border-box;
   border: 1px solid white;
-  height: inherit;
+  height: 100%;
   overflow: scroll;
 }
 
@@ -73,10 +71,10 @@
 
 @media (max-width: 400px) {
   .homeContainer {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
-  .HomeImage {
+  .HomeImage>img {
     position: absolute;
     transform: translate(-30%, 87%);
     border: none;

@@ -6,11 +6,12 @@
     display: flex;
     flex-direction: row;
     position: relative;
-    overflow: scroll;
+    overflow: hidden;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .homeContainer {
         flex-direction: column;
+        overflow: scroll;
     }
 }
 
@@ -59,6 +60,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
 
 .text {
     color: grey;
@@ -154,7 +156,8 @@
 
 .confSubmit {
     background:linear-gradient(to right, #f093fb, #f5576c);;
-    color: blue;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -171,8 +174,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
-
+@media screen and (max-width: 800px) {
+    .whiteDiv {
+        height: fit-content;
+    }
+    
+}
 .gradientDiv {
     background: linear-gradient(0deg, rgb(253, 219, 149), rgb(220, 144, 241));
     padding: 20px;

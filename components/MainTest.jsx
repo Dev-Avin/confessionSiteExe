@@ -1,5 +1,5 @@
 // MainTest.jsx
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../src/firebase-config';
 import ConfessionModal from '../modular_comps/CofessionModal';

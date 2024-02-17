@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { addDoc, collection } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { db, auth } from "../src/firebase-config";
 import './LoginPage.css';
-// import heart from './assets/heart.png';
 import account from './assets/account.png';
 import instagram from './assets/instagram.png';
-import message from './assets/message.png';
 import eyes from './assets/eyes.png';
-import acco from './assets/acco.png';
 import Exe from './assets/exe.png';
-import Nimbus from './assets/nimbus.png';
+
 
 
 //import Confession of the day
@@ -50,16 +47,7 @@ const LoginPage = () => {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
   const [imgSrc , setImgSrc] = useState(Exe);
-  setInterval((imgSrc) => {
-    if(imgSrc === Nimbus){
-      setImgSrc(Exe);
-    }
-    if(imgSrc === Exe){
-      setImgSrc(Nimbus);
-    }
-  } , 3000);
-  const [UserName, setUserName] = useState('Anonymous');
-  const postCollectionRef = collection(db, "confessions");
+ const postCollectionRef = collection(db, "confessions");
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -82,11 +70,19 @@ const LoginPage = () => {
   }, []);
 
   const createPost = async () => {
+    // Check if title and postText fields are empty
+    if (!title.trim() || !postText.trim()) {
+      alert('Please fill in both the title and text fields.');
+      return; // Prevent further execution
+    }
+  
+    // If both fields are filled, proceed with adding the post to the database
     await addDoc(postCollectionRef, { title: title, postText: postText, author: { name: auth.currentUser.displayName, id: auth.currentUser.uid } });
     setTitle("");
     setPostText("");
-    navigate("/new");
+    navigate("/confessionPage");
   };
+  
 
   return (
     <motion.div 
@@ -113,8 +109,9 @@ const LoginPage = () => {
           <h1 style={{ color: '#00327d', textShadow: 'rgba(0,0,0,0.4) 0.0.1em 0.1em' , textAlign: 'center' }}>TEAM .EXE</h1>
           <div className='flexCont'>
             <motion.img
-             initial={ {opacity: 0, scale: 0} }
+             initial={ {opacity: 0, scale: 0.5} }
              animate={{ opacity: 1, scale: 1 }}
+             exit={{ opacity: 0, scale: 0.5 }}
              transition={{ duration: 0.5 }}
              style = {{width: '250px',aspectRatio:1.1}}
               src={imgSrc} alt="User"
@@ -155,6 +152,7 @@ const LoginPage = () => {
             <p style={{ color: 'blue' }}>
               {confessionofDay.body}
             </p>
+            <button className='confSubmit' onClick={() => navigate('../confessionPage')}>See More</button>
             </div>
           </div>
         </div>
