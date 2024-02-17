@@ -1,6 +1,5 @@
-// MainTest.jsx
 import { useEffect, useState } from 'react';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection, query, where } from 'firebase/firestore';
 import { db } from '../src/firebase-config';
 import ConfessionModal from '../modular_comps/CofessionModal';
 import './MainTest.css';
@@ -10,11 +9,18 @@ import { Navigate } from 'react-router-dom';
 const MainTest = () => {
   const [postLists, setPostLists] = useState([]);
   const postCollectionRef = collection(db, "confessions");
-
+  
   useEffect(() => {
     const getPosts = async () => {
-      const data = await getDocs(postCollectionRef);
-      setPostLists(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      try {
+        // Construct a query to filter documents where switch is true
+        const q = query(postCollectionRef, where("switch", "==", true));
+        const querySnapshot = await getDocs(q);
+        const data = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        setPostLists(data);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
     };
 
     getPosts();

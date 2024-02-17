@@ -1,9 +1,34 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, query, where, getDocs } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { db, auth } from '../src/firebase-config';
 import './LoginPage.css';
+import account from './assets/account.png';
+import instagram from './assets/instagram.png';
+import eyes from './assets/eyes.png';
+import Exe from './assets/exe.png';
+
+const navArr = [
+  {
+    id: 2,
+    title: 'See more',
+    linkto: './confessionPage',
+    url: eyes,
+  },
+  {
+    id: 1,
+    title: 'About',
+    linkto: '/about',
+    url: account,
+  },
+  {
+    id: 1,
+    title: 'Instagram',
+    url: instagram,
+    linkto: 'https://www.instagram.com/teamexenith/',
+  },
+];
 import Account from '../modular_comps/Account.jsx';
 import hamburgerIcon from './assets/hamburger.png';
 
@@ -14,29 +39,32 @@ const confessionofDay = {
 };
 
 const LoginPage = () => {
-  const [title, setTitle] = useState('');
-  const [postText, setPostText] = useState('');
-  const [showAccountOverlay, setShowAccountOverlay] = useState(false);
-  const postCollectionRef = collection(db, 'confessions');
+  const [title, setTitle] = useState("");
+  const [postText, setPostText] = useState("");
+  const [imgSrc , setImgSrc] = useState(Exe);
+  const postCollectionRef = collection(db, "confessions");
+  const [confessionOfDay, setConfessionOfDay] = useState({});
   let navigate = useNavigate();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.body.clientHeight;
-      const scrollPercentage = (scrollPosition / (documentHeight - windowHeight)) * 100;
-      // Adjust these values based on your layout and requirements
-      const confessionScrollThreshold = 70;
-
-      if (scrollPercentage > confessionScrollThreshold) {
-        // Here you can perform any action you want when the scroll percentage reaches a certain threshold
-        console.log('Reached confession scroll threshold');
+    const fetchConfessionOfDay = async () => {
+      try {
+        // Query confessions where confessionOfTheDay is true
+        const q = query(collection(db, "confessions"), where("confession_ofday", "==", true));
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+          // There should be only one confession marked as confessionOfTheDay
+          const confession = querySnapshot.docs[0].data();
+          setConfessionOfDay(confession);
+        } else {
+          console.log("No confession of the day found");
+        }
+      } catch (error) {
+        console.error("Error fetching confession of the day:", error);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    fetchConfessionOfDay();
   }, []);
 
   const createPost = async () => {
@@ -52,10 +80,7 @@ const LoginPage = () => {
     setPostText('');
     navigate('/confessionPage');
   };
-
-  const toggleAccountOverlay = () => {
-    setShowAccountOverlay(!showAccountOverlay);
-  };
+  
 
   return (
     <motion.div
@@ -84,11 +109,11 @@ const LoginPage = () => {
           <h2 style={{ color: '#00327d' }}>Confession Of The Day</h2>
           <div className="gradientDiv">
             <div className="whiteDiv">
-              <h3>{confessionofDay.title}</h3>
+              <h3 >{confessionOfDay.title}</h3>
               <p style={{ color: 'blue' }}>
-                {confessionofDay.body}
+                {confessionOfDay.postText}
               </p>
-              <button className="confSubmit" onClick={() => navigate('../confessionPage')}>See More</button>
+              <button className="confSubmit" onClick={() => navigate('/confessionPage')}>See More</button>
             </div>
           </div>
         </div>
@@ -98,3 +123,4 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
