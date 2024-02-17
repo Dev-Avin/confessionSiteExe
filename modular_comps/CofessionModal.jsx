@@ -10,8 +10,9 @@ const ConfessionModal = ({ confession }) => {
   const [liked, setLiked] = useState(false);
 
   const liker = () => {
-    setLiked(!liked);
+    // Increment likes count if liked, decrement if unliked
     setLikes(liked ? likes - 1 : likes + 1);
+    setLiked(!liked);
   };
 
   return (
@@ -40,6 +41,8 @@ const ConfessionModal = ({ confession }) => {
       </div>
     </motion.div>
   );
+
+  
 };
 
 export default ConfessionModal;

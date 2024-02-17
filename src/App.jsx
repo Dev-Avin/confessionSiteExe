@@ -22,6 +22,8 @@ const App = () => {
       </div>
       <div className='sticker'>
         <div style={{ height: '85vh', width: '80vw', marginTop: '5vh', border: '10px solid white', borderRadius: '40px', position: 'relative', backgroundImage: `url('/rose.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+
+          
         <Router>
 
   <Routes>
