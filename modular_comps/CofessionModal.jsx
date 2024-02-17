@@ -23,7 +23,10 @@ const ConfessionModal = ({ confession }) => {
     } // Animation when component becomes visible
       transition={{ duration: 0.5 , }} 
     >
-      <h2 className="confessionHead">{confession.title}</h2>
+      <div className="modalContentContainer">
+
+    
+      <h2 className="confessionHead gradientText">{confession.title}</h2>
       <p className="confessionPara">{confession.postText}</p>
       <div style={{
         display:'flex',
@@ -36,7 +39,8 @@ const ConfessionModal = ({ confession }) => {
         <button className="likeButton" style={{background: liked ? 'white' : 'white'}} onClick={liker}>
           <img src={liked ? heartRed : heartWhite} alt="heart" /> 
         </button>
-        <p className="likeCount" style={{color: liked ? 'red' : 'red' ,paddingBottom:'10px'}}>{likes}</p>
+        <p className="likeCount" style={{color: liked ? 'red' : 'red' , marginTop:'10px'}}>{likes}</p>
+      </div>
       </div>
     </motion.div>
   );

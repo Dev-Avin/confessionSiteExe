@@ -1,49 +1,67 @@
 /* ConfessionModal.css */
+
 .confessionModal {
-  background-color: #ffc0cb; /* Pinkish hue */
+  background-color: #ffd9df; /* Pinkish hue */
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
   width: 300px; /* Adjust the width as needed */
-  height: 200px; /* Fixed height */
   margin-right: 20px; /* Add some spacing between modals */
   display: flex; /* Make the modal flex container */
   flex-direction: column; /* Stack children vertically */
   justify-content: space-between;
-  overflow-y: scroll; 
-  
-}
-.confessionPara {
-  overflow-wrap: break-word; 
+  overflow-y: scroll;
+  text-align: center; /* Align text to center */
 }
 
+.modalContentContainer {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  height: 100%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.confessionPara {
+  overflow-wrap: break-word;
+  color: blueviolet;
+}
 
 .confessionModal h2 {
   margin-top: 0;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .confessionModal p {
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
-.confessionLikes {
-  margin-left: 10px; 
+.likeContainer {
+  display: flex;
+  align-items: center;
 }
 
 .likeButton {
   background: none;
   border: none;
   cursor: pointer;
-  display: flex;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.0);
-  align-items: center;
+  margin-right: 10px;
 }
+
 .likeButton:hover {
   background: rgba(251, 64, 179, 0.2);
 }
+
 .likeButton img {
-  width: 24px; 
+  width: 24px;
   height: auto;
+}
+
+.likeCount {
+  margin: 0;
 }

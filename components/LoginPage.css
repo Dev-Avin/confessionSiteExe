@@ -15,7 +15,11 @@
     }
 }
 
-
+.accountContainer{
+    flex: 1;
+    width: 100%;
+    height: 80vh;
+}
 .flexChild {
     flex: 1;
 }
@@ -26,17 +30,7 @@
     flex-direction: column;
 }
 
-.account {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    border: 1px solid white;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    background: linear-gradient(315deg, rgba(255, 238, 204, 1), rgba(247, 217, 255, 1));
-}
+
 
 .confess {
     margin-top: 20px;
@@ -66,23 +60,6 @@
     color: grey;
 }
 
-.accountImg {
-    width: 100px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-
-}
-.accountImg > img {
-    width: 100%;
-    border-radius: 50%;
-    margin-top: 25px;
-
-}
 .options {
     width: 80%;
     height: fit-content;
@@ -124,7 +101,7 @@
 }
 
 @media screen and (max-width: 900px) {
-    .account {
+    .accountContainer {
         display: none;
     }
 }

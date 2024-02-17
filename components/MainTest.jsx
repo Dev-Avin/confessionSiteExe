@@ -4,6 +4,8 @@ import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../src/firebase-config';
 import ConfessionModal from '../modular_comps/CofessionModal';
 import './MainTest.css';
+import { motion } from 'framer-motion';
+import { Navigate } from 'react-router-dom';
 
 const MainTest = () => {
   const [postLists, setPostLists] = useState([]);
@@ -27,7 +29,22 @@ const MainTest = () => {
         {postLists.map((post) => (
           <ConfessionModal key={post.id} confession={post} />
         ))}
-                <div className='spacer'/>
+        <motion.div className='redirector' 
+         style={{ 
+           height: '100px' ,
+            width: '100%' ,
+             background: 'white',
+              borderRadius: '30px',
+               position: 'relative' ,
+                display: 'flex',
+                 justifyContent: 'center' ,
+                  alignItems: 'center' ,
+                   }}
+        whileTap={{ scale: 0.9 }}
+       >
+          <a href='../loginPage'><h1 style={{ color:'#00327d'}}>Wanna Confess ?</h1></a>
+        </motion.div>
+              
       </div>
     </div>
     </div>
