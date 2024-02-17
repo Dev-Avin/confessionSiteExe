@@ -27,10 +27,28 @@ const MainTest = () => {
   }, []); // Add an empty dependency array to ensure this effect runs only once
 
   return (
+    
     <div className='confessionsContainer'>
+    
     <div style={{ display: 'flex', justifyContent: 'center' , overflow: 'scroll' }}>
+      
     <div className='confessionsNew'>
-        <div className='spacer'/>
+    <motion.div className='redirector' 
+         style={{ 
+           height: '100px' ,
+            width: '100%' ,
+             background: 'white',
+              borderRadius: '30px',
+               position: 'relative' ,
+                display: 'flex',
+                 justifyContent: 'center' ,
+                  alignItems: 'center' ,
+                   }}
+        whileTap={{ scale: 0.9 }}
+       >
+          <a href='../'><h2 style={{ color:'#00327d'}}>Back to base</h2></a>
+        </motion.div>
+
         {/* Render ConfessionModal components */}
         {postLists.map((post) => (
           <ConfessionModal key={post.id} confession={post} />

@@ -1,17 +1,18 @@
 /* ConfessionModal.css */
 
 .confessionModal {
-  background-color: #ffd9df; /* Pinkish hue */
+  background-color: #ffd9df;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
-  width: 300px; /* Adjust the width as needed */
-  margin-right: 20px; /* Add some spacing between modals */
-  display: flex; /* Make the modal flex container */
-  flex-direction: column; /* Stack children vertically */
+  width: 250px;
+  height: 250px;
+  margin-right: 20px;
+  display: flex; 
+  flex-direction: column; 
   justify-content: space-between;
   overflow-y: scroll;
-  text-align: center; /* Align text to center */
+  text-align: center; 
 }
 
 .modalContentContainer {

@@ -6,10 +6,6 @@ import { db, auth } from '../src/firebase-config';
 import './LoginPage.css';
 import Account from '../modular_comps/Account.jsx';
 
-
-// import Confession of the day
-
-
 const LoginPage = () => {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
