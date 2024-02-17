@@ -6,7 +6,6 @@ import About from '../components/About.jsx';
 import './App.css'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainTest from '../components/MainTest.jsx';
-import BlockedUserPage from '../components/BlockedUserPage.jsx';
 import NotFoundPage from '../components/NotFoundPage.jsx';
 import hamburger from '../components/assets/hamburger.png';
 import Account from '../modular_comps/Account.jsx';
@@ -45,7 +44,6 @@ const App = () => {
                             <Route path="/LoginPage" element={<LoginPage />} />
                             <Route path="/confessionPage" element={<MainTest />} />
                             <Route path="/about" element={<About />} />
-                            <Route path="/blocked" element={<BlockedUserPage />} />
                             <Route path="*" element={<NotFoundPage />} />
                         </Routes>
                     </Router>
