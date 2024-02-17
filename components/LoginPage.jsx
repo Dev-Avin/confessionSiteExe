@@ -4,44 +4,15 @@ import { addDoc, collection, query, where, getDocs } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { db, auth } from '../src/firebase-config';
 import './LoginPage.css';
-import account from './assets/account.png';
-import instagram from './assets/instagram.png';
-import eyes from './assets/eyes.png';
-import Exe from './assets/exe.png';
-
-const navArr = [
-  {
-    id: 2,
-    title: 'See more',
-    linkto: './confessionPage',
-    url: eyes,
-  },
-  {
-    id: 1,
-    title: 'About',
-    linkto: '/about',
-    url: account,
-  },
-  {
-    id: 1,
-    title: 'Instagram',
-    url: instagram,
-    linkto: 'https://www.instagram.com/teamexenith/',
-  },
-];
 import Account from '../modular_comps/Account.jsx';
-import hamburgerIcon from './assets/hamburger.png';
+
 
 // import Confession of the day
-const confessionofDay = {
-  title: 'Secret Crush',
-  body: "I've had a secret crush on my best friend for years. Every time I see him, my heart skips a beat, but I've never had the courage to tell him.",
-};
+
 
 const LoginPage = () => {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
-  const [imgSrc , setImgSrc] = useState(Exe);
   const postCollectionRef = collection(db, "confessions");
   const [confessionOfDay, setConfessionOfDay] = useState({});
   let navigate = useNavigate();

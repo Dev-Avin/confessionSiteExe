@@ -25,6 +25,7 @@ const styles = {
     lineHeight: '1.6',
     backgroundColor: '#f5f5f5',
     height: '95%',
+    width:'100%',
     color: '#333',
     borderRadius: '30px',
     overflow:'scroll'

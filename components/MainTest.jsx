@@ -4,7 +4,7 @@ import { db } from '../src/firebase-config';
 import ConfessionModal from '../modular_comps/CofessionModal';
 import './MainTest.css';
 import { motion } from 'framer-motion';
-import { Navigate } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 
 const MainTest = () => {
   const [postLists, setPostLists] = useState([]);
@@ -48,7 +48,7 @@ const MainTest = () => {
                    }}
         whileTap={{ scale: 0.9 }}
        >
-          <a href='../loginPage'><h1 style={{ color:'#00327d'}}>Wanna Confess ?</h1></a>
+          <a href='../loginPage'><h2 style={{ color:'#00327d'}}>Wanna Confess ?</h2></a>
         </motion.div>
               
       </div>
