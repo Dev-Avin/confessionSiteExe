@@ -26,7 +26,7 @@ const HomePage = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -50 }}
       transition={{ duration: 0.5 }}
-      className="homeContainer"
+      className="homePageContainer"
     >
       <div className="HomeImage">
         <img src='/heartBoyLowQual-removebg-preview.png' alt="Heart Boy" />
